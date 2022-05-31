@@ -1,4 +1,5 @@
 const fs = require("fs"); // file system
+const { sum, sub } = require("./custom_module/math.js");
 
 // fs.readFile("./mindx1.txt", "utf-8", (err, data) => {
 //   if (err) {
@@ -7,13 +8,16 @@ const fs = require("fs"); // file system
 //   console.log("data: ", data);
 // });
 // CRUD : Create, delete, update, read
-const data = fs.readFileSync("./students.json");
-const students = JSON.parse(data);
-const newStudent = {
-  id: 2,
-  name: "Tuan",
-  gender: "Female",
-};
-students["data"].push(newStudent);
 
-fs.writeFileSync("./students.json", JSON.stringify(students));
+// const data = fs.readFileSync("./students.json");
+// const students = JSON.parse(data);
+// const newStudent = {
+//   id: 2,
+//   name: "Tuan",
+//   gender: "Female",
+// };
+// students["data"].push(newStudent);
+
+// fs.writeFileSync("./students.json", JSON.stringify(students));
+
+console.log(sub(1, 2));
