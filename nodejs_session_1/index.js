@@ -9,7 +9,7 @@ const { sum, sub } = require("./custom_module/math.js");
 // });
 // CRUD : Create, delete, update, read
 
-// const data = fs.readFileSync("./students.json");
+const data = fs.readFileSync("./students.json");
 // const students = JSON.parse(data);
 // const newStudent = {
 //   id: 2,
@@ -18,6 +18,14 @@ const { sum, sub } = require("./custom_module/math.js");
 // };
 // students["data"].push(newStudent);
 
-// fs.writeFileSync("./students.json", JSON.stringify(students));
+const newStudent = {
+  data: [
+    {
+      id: 1,
+      name: "vu",
+      gender: "male",
+    },
+  ],
+};
 
-console.log(sub(1, 2));
+fs.writeFileSync("./students.json", JSON.stringify(newStudent));
