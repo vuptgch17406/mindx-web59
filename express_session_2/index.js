@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const studentRouter = require("./router/students.js");
+const teacherRouter = require("./router/teacher.js");
+
 const bodyParser = require("body-parser");
 
 const port = 3000;
