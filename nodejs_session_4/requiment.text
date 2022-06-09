@@ -1,0 +1,53 @@
+Step1: Create an application with expressJS
+Step2: Create array User:
+[
+    {
+        "id": 1,
+        "name": "Nga",
+        "password": "123456",
+        "role": "student"
+    },
+    {
+        "id": 2,
+        "name": "Tuan",
+        "password": "654321"
+        "role": "teacher"
+    },
+    {
+        "id": 3,
+        "name": "Manh",
+        "password": "123a"
+        "role": "parent"
+    },
+]
+
+Step3: Create list Student:
+[
+    {
+        "id": 1,
+        "name": "Van",
+        "grade": 9
+    },
+    {
+        "id": 2,
+        "name": "Nghia",
+        "grade": 8
+    },
+    {
+        "id": 3,
+        "name": "Hao",
+        "grade": 5
+    },
+]
+
+Step4: Tat ca user duoc quyen GET list student
+Create api login:
+Input: username + password
+Output: JWT token (Encrypt algorithm + signing key)
+
+Create middleware de:
+Authenmiddleware de check token phia client gui len da bao gom thong tin nguoi dung trong user.
+Neu ok ==> return ve student
+If not return Unauthorized message
+
+Step5: Chi co user voi role la teacher duoc quyen sua diem Student
