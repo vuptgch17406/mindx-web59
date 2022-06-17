@@ -1,0 +1,24 @@
+Step 1: Init Project (mongoDB + ExpressJS) // Done
+Step 2: Tao collection Students trong mongoDB (mongoDBCompass) // Done
+Step 3: Tao router GET, CREATE, UPDATE, DELETE
+Step 4: Router CREATE (POST): // Done
+- Them 1 document vao trong collection students
+- Them nhieu document vao collection students
+Step 5: Router GET
+- Neu khong co param, query ===> GET all Students // Done
+- Net query theo id ===> GET student by id // Done
+- Neu query theo name ===> GET student by name // Done
+- Neu query theo rank ===> GET list student theo rank // Done
+
+Step 6: Router UPDATE (PUT):
+- Client gui ID trong query ===> App se tim ID ===> Update document theo body
+Step 7: Router DELETE (DELETE):
+- Tim ban ghi trong DB ===> Neu khong co return error message
+- Tim thay ban ghi ===> Xoa ban ghi
+
+
+start point = 5
+end point = 15
+
+skip = 4 ===> bo qua cac ban ghi 1,2,3,4 query tu ban ghi so 5
+limit = 10 ===> chi lay 10 ban ghi
