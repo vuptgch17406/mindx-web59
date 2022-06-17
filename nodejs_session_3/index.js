@@ -22,7 +22,7 @@ app.use("/subject", LoggingMiddleware, subjectRouting);
 //   res.json("Success");
 // });
 
-// app.use(express.static("assests"));
+app.use(express.static("assests"));
 app.listen(3000, (err) => {
   if (err) {
     return;
