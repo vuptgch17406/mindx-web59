@@ -4,7 +4,6 @@ const studentRouting = require("./router/student_routing");
 const teacherRouting = require("./router/teacher_routing");
 const subjectRouting = require("./router/subject_routing");
 const LoggingMiddleware = require("./middleware/logging_middleware");
-const studentMiddleware = require("./middleware/student_middleware");
 const bodyParser = require("body-parser");
 // const morgan = require("morgan");
 
