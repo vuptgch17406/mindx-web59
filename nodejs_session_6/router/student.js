@@ -47,7 +47,37 @@ studentRouter.get("/", async (req, res) => {
         })
         .toArray();
     } else {
-      student = await db.students.find({}).skip(19).limit(5).toArray();
+      // student = await db.students
+      //   .find({})
+      //   .skip(19)
+      //   .limit(5)
+      //   .project({
+      //     lastModified: 0,
+      //     // _id: 0,
+      //   })
+      //   .toArray();
+      student = await db.students
+        .aggregate([
+          { $match: $filter },
+          {
+            $sort: {
+              rank: 1,
+            },
+          },
+          {
+            $skip: Number(req.query.skip),
+          },
+          {
+            $limit: Number(req.query.limit),
+          },
+          {
+            $project: {
+              lastModified: 0,
+              _id: 0,
+            },
+          },
+        ])
+        .toArray();
     }
     res.status(201);
     res.json(student);
@@ -80,16 +110,23 @@ studentRouter.put("/", async (req, res) => {
 studentRouter.delete("/", async (req, res) => {
   try {
     const { id } = req.headers;
-    let student;
+    let respond;
     if (id) {
-      student = await db.students.deleteOne({ _id: new ObjectId(id) });
-      res.json("Successfully deleted one document.");
+      respond = await db.students.deleteOne({ _id: new ObjectId(id) });
+      if (respond.acknowledged) {
+        res.json(`Successfully delete ${respond.deletedCount}`);
+        return;
+      }
+      res.json(respond);
+      return;
     } else {
-      res.json("No documents matched the query. Deleted 0 documents.");
+      res.status(400);
+      res.json("Id is missing");
+      return;
     }
   } catch (error) {
     res.status(500);
-    res.json("Some thing went wrong");
+    res.json(error.message);
   }
 });
 
