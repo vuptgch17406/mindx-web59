@@ -1,0 +1,8 @@
+Step 1: Create DB User_Management // Done
+Step 2: Create Collection User // Done
+Step 3: Connect Mongo ---> Express // Done
+Step 4: Define api sign up:
+    - POST: Create user with encrypt password (using bycrypt) // Done
+Step 5: Define API login
+    - POST: Send user info (user name, password) ==> compare ==> 
+    double check db info
