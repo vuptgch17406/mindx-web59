@@ -2,16 +2,16 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const { connectToDb, db } = require("./db");
-const userRouter = require("./router/user");
-const uploadRouter = require("./router/upload");
 
 app.use(bodyParser.json({ extended: true }));
-app.use("/user", userRouter);
-app.use("/upload", uploadRouter);
 
-app.get("/", (req, res) => {
-  res.json("Hello World");
-  console.log("database", db);
+app.get("/", async (req, res) => {
+  const student = await db.students.findOne({
+    name: "Nghia",
+  });
+
+  res.status(200);
+  res.json(student);
 });
 
 app.listen(3000, () => {
